@@ -12,6 +12,10 @@ app.use((req, res, next) => {
     next();
   });
 
+// Serve static files
+app.use(express.static(path.join(__dirname, 'build')));
+const PORT = process.env.PORT || 9000;
+
 let db;
 const initializeDbAndServer=async()=>{
     try{
@@ -19,7 +23,7 @@ const initializeDbAndServer=async()=>{
             filename:dbPath,
             driver:sqlite3.Database
         })
-        app.listen(9000,()=>{
+        app.listen(PORT,()=>{
             console.log("server running....")
         })
     }catch(e){
