@@ -1,0 +1,16 @@
+GET http://localhost:3000/
+
+###
+
+POST http://localhost:3000/add-disease
+content-type:application-json
+
+{
+    "diseaseName":"FEVER",
+    "diseaseSource":"98.6+ is consider to fever",
+    "byInjection":"paracetmol(650)",
+    "medicationByTablets":"Dolo 650,paracetmol",
+    "byNatural":"Clean the body every one hour with cold water",
+    "imageUrl":"https://annapolispediatrics.com/sites/default/files/inline-images/fever.jpg",
+    "videoUrl":"https://youtu.be/uyumGxrgy9k?si=FtNAXdDoUIPGcoMo"
+}

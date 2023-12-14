@@ -63,7 +63,7 @@ app.post('/add-disease',async (req,res)=>{
 
 
 // Update disease by id api
-app.put('/update-disease/:diseaseId',async(req,res)=>{
+app.put('/update-disease/:diseaseId',async (req,res)=>{
     const {diseaseId}=req.params
     const updateDetails=req.body
     const {imageUrl="",videoUrl=""}=updateDetails
@@ -73,8 +73,9 @@ app.put('/update-disease/:diseaseId',async(req,res)=>{
         video_url='${videoUrl}'
     where id=${diseaseId};`;
     const response=await db.run(updateDiseaseById)
+    console.log(response)
     res.status(200)
-    res.send('Disease updated Succesfully --Bhavana Reddy')
+    res.send({msg:"Updated Successfully"})
 })
 
 
@@ -84,8 +85,8 @@ app.delete('/delete-disease/:diseaseId',async (req,res)=>{
     console.log(diseaseId)
     const deleteDiseaseById=`
     delete from disease_details
-    where id=${diseaseId};`
+    where id=${diseaseId};`;
     const response=await db.run(deleteDiseaseById)
     res.status(200)
-    res.send("Disease deleted Successfully --Bhavana Reddy")
+    res.send({msg:"Disease deleted Successfully --Bhavana Reddy"})
 })
